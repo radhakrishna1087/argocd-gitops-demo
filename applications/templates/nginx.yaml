@@ -1,0 +1,30 @@
+{{- if .Values.nginx.enabled }}
+
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+
+metadata:
+  name: nginx
+  namespace: {{ .Values.argocd.namespace }}
+
+spec:
+  project: {{ .Values.argocd.project }}
+
+  source:
+    repoURL: {{ .Values.nginx.repoURL }}
+    targetRevision: {{ .Values.nginx.revision }}
+    path: {{ .Values.nginx.path }}
+
+  destination:
+    server: {{ .Values.argocd.destinationServer }}
+    namespace: {{ .Values.nginx.namespace }}
+
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+
+    syncOptions:
+    - CreateNamespace=true
+
+{{- end }}

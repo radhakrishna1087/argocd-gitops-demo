@@ -3,7 +3,7 @@ environment: dev
 argocd:
   namespace: argocd
   project: default
-  destinationServer: https://kubernetes.default.svc
+  destinationServer: https://kubernetes.docker.internal:6443
 
 nginx:
   enabled: true

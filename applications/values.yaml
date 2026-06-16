@@ -3,18 +3,23 @@ environment: dev
 argocd:
   namespace: argocd
   project: default
-  destinationServer: https://kubernetes.docker.internal:6443
 
 nginx:
   enabled: true
   namespace: nginx-demo
+
   repoURL: https://github.com/radhakrishna1087/argocd-gitops-demo.git
   revision: dev
   path: nginx
 
+  destinationServer: https://kubernetes.docker.internal:6443
+
 loki:
-  enabled: false
+  enabled: true
   namespace: monitoring
+
   repoURL: https://github.com/radhakrishna1087/argocd-gitops-demo.git
   revision: dev
   path: charts/loki-stack
+
+  destinationServer: https://kubernetes.default.svc

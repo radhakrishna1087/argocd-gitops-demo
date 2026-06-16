@@ -16,8 +16,8 @@ spec:
     path: {{ .Values.loki.path }}
 
   destination:
-    server: {{ .Values.argocd.destinationServer }}
-    namespace: {{ .Values.loki.namespace }}
+  server: {{ .Values.loki.destinationServer }}
+  namespace: {{ .Values.loki.namespace }}
 
   syncPolicy:
     automated:

@@ -16,8 +16,8 @@ spec:
     path: {{ .Values.nginx.path }}
 
   destination:
-    server: {{ .Values.argocd.destinationServer }}
-    namespace: {{ .Values.nginx.namespace }}
+  server: {{ .Values.nginx.destinationServer }}
+  namespace: {{ .Values.nginx.namespace }}
 
   syncPolicy:
     automated:
